@@ -31,7 +31,7 @@ def purchase_vehicle():
     if not vehicle:
         return jsonify({"message": "Vehicle not found"}), 404
 
-    # For simplicity, just return a success message (in reality, you would save this to a database)
+
     return jsonify({
         "message": f"Thank you {customer_name}! You've successfully purchased a {vehicle['make']} {vehicle['model']} for ${vehicle['price']}."
     })
