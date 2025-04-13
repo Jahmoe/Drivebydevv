@@ -1,4 +1,3 @@
-/* RESET / GLOBAL */
 * {
   margin: 0;
   padding: 0;
@@ -9,16 +8,13 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
   color: #333;
-  /* Smooth background transitions if you ever change colors or do dark mode */
   transition: background-color 0.3s ease;
 }
 
-/* Use Bebas Neue for headings and brand text (loaded in HTML) */
 h1, h2, .nav-brand {
   font-family: 'Bebas Neue', sans-serif; 
 }
 
-/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -31,21 +27,19 @@ h1, h2, .nav-brand {
   align-items: center;
 }
 
-/* Larger logo */
 .nav-logo {
   width: 150px; 
   height: auto;
   margin-right: 0.7rem;
 }
 
-/* Larger brand text */
 .nav-brand {
   font-size: 70px;
 }
 
 .sign-in-btn {
   background-color: #fff;
-  border: 2px solid #c0392b; /* Red accent */
+  border: 2px solid #c0392b; 
   color: #c0392b;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -59,8 +53,6 @@ h1, h2, .nav-brand {
   color: #fff;
 }
 
-/* HERO SECTION
-   We’ll animate the wave shape on page load and fade/slide in the content */
 .hero-section {
   position: relative;
   display: flex;
@@ -71,9 +63,7 @@ h1, h2, .nav-brand {
   min-height: 60vh; 
 }
 
-/* KEYFRAMES */
 
-/* 1) Expand the wave shape from the top-right corner */
 @keyframes waveExpand {
   0% {
     clip-path: polygon(100% 0, 100% 0, 100% 0);
@@ -83,7 +73,7 @@ h1, h2, .nav-brand {
   }
 }
 
-/* 2) Slide & fade in from the left */
+
 @keyframes fadeInLeft {
   0% {
     transform: translateX(-30px);
@@ -95,7 +85,6 @@ h1, h2, .nav-brand {
   }
 }
 
-/* 3) Slide & fade in from the right */
 @keyframes fadeInRight {
   0% {
     transform: translateX(30px);
@@ -107,8 +96,6 @@ h1, h2, .nav-brand {
   }
 }
 
-/* Wave-like red shape on the right side via clip-path.
-   We'll animate it with "waveExpand" upon loading. */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -116,7 +103,7 @@ h1, h2, .nav-brand {
   right: 0;
   width: 60%;
   height: 100%;
-  background-color: #c0392b; /* Rich red accent */
+  background-color: #c0392b;
   z-index: 0;
   animation: waveExpand 1.2s ease-out forwards;
 }
@@ -125,7 +112,6 @@ h1, h2, .nav-brand {
   width: 50%;
   z-index: 1; 
   padding-right: 1rem;
-  /* fade/slide in from the left with a slight delay so wave can finish first */
   animation: fadeInLeft 1.2s ease forwards 0.3s;
 }
 
@@ -155,8 +141,6 @@ h1, h2, .nav-brand {
   background-color: #a72f24;
 }
 
-/* The hero image slides/fades in from the right
-   Start after the text for a staggered effect */
 .hero-image {
   width: 50%;
   text-align: right;
@@ -170,12 +154,10 @@ h1, h2, .nav-brand {
   transition: transform 0.3s ease;
 }
 
-/* Subtle scale on hover for the hero image */
 .hero-image img:hover {
   transform: scale(1.03);
 }
 
-/* INFO SECTION */
 .info-section {
   padding: 2rem;
   max-width: 800px;
@@ -183,7 +165,6 @@ h1, h2, .nav-brand {
   text-align: center;
 }
 
-/* AVAILABLE VEHICLES */
 #vehicle-list {
   padding: 2rem;
   max-width: 800px;
@@ -195,7 +176,6 @@ h1, h2, .nav-brand {
   margin-bottom: 1rem;
 }
 
-/* PURCHASE FORM */
 #purchase-form {
   padding: 2rem;
   max-width: 800px;
@@ -257,7 +237,6 @@ h1, h2, .nav-brand {
   font-weight: 600;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 1rem;
@@ -266,22 +245,17 @@ footer {
   margin-top: 2rem;
 }
 
-/* MEDIA QUERIES */
 
-/* 1) For devices up to 992px (tablet-sized) */
 @media (max-width: 992px) {
-  /* Maybe shrink the brand text a bit */
   .nav-brand {
     font-size: 50px;
   }
 
-  /* Adjust wave shape slightly */
   .hero-section::before {
     clip-path: polygon(100% 0, 100% 100%, 10% 100%);
   }
 }
 
-/* 2) For devices up to 768px (small tablets / large phones) */
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
@@ -292,13 +266,12 @@ footer {
   .hero-image {
     width: 100%;
     padding-right: 0;
-    animation: none; /* remove the side slide for a stacked layout */
-    opacity: 1; /* ensure visible if we remove animations */
+    animation: none; 
+    opacity: 1; 
   }
 
-  /* Tweak wave shape on smaller screens */
   .hero-section::before {
-    animation: none; /* or keep if you like the wave expanding on mobile */
+    animation: none; 
     clip-path: polygon(100% 0, 100% 100%, 40% 100%);
   }
 
@@ -307,9 +280,7 @@ footer {
   }
 }
 
-/* 3) For devices up to 576px (small phones) */
 @media (max-width: 576px) {
-  /* Even smaller wave or remove wave altogether */
   .hero-section::before {
     clip-path: polygon(100% 0, 100% 100%, 70% 100%);
   }
