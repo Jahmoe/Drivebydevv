@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Make and Model Recognition</title>
+    <link rel="stylesheet" href="model_recognition.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="nav-brand">Vehicle Recognition</h1>
+    </div>
+    <div class="container">
+        <div class="upload-section">
+            <h2>Upload a Car Image</h2>
+            <div class="upload-box">
+                <input type="file" id="imageUpload" accept="image/*" class="file-input">
+                <label for="imageUpload" class="upload-label">Choose File</label>
+                <button class="upload-btn" onclick="predictVehicle()">Predict</button>
+            </div>
+            <div class="loading" id="loading" style="display:none;"></div>
+            <div class="result-display" id="result">Prediction will appear here</div>
+            <div class="preview-container">
+                <img id="preview" class="image-preview" src="#" alt="Image Preview" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <script src="./model_recogition.js"></script>
+</body>
+</html>

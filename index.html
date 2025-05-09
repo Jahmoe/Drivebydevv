@@ -6,8 +6,8 @@
   <title>Drive by Devs - Vehicle Purchase</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
@@ -19,10 +19,26 @@
       />
       <span class="nav-brand">DriveBy Devs</span>
     </div>
-    <div class="nav-right">
-      <button class="sign-in-btn">Sign In</button>
-    </div>
+
   </nav>
+
+  <!-- Navigation Component -->
+  <div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+      <ul class="navigation__list">
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span> Home</a></li>
+        <li class="navigation__item"><a href="model_recognition.html" class="navigation__link"><span>02</span> Vehicles</a></li>
+        <li class="navigation__item"><a href="#purchase-form" class="navigation__link"><span>03</span> Purchase</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span> Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <section class="hero-section">
     <div class="hero-text">
@@ -30,7 +46,6 @@
       <p>Streamline your car purchase experience with our effortless booking process.</p>
       <a href="#purchase-form" class="cta-btn">Explore Cars</a>
     </div>
-
     <div class="hero-image">
       <img src="car.png" alt="Car Image" />
     </div>
@@ -40,7 +55,7 @@
     <p>
       We’re a dynamic group of four passionate developers dedicated to revolutionizing e-commerce 
       experiences. Our mission is to enhance website performance and functionality by leveraging 
-      AI-driven optimizations and robust structural frameworks...
+      AI-driven optimizations and robust structural frameworks.
     </p>
   </section>
 
@@ -56,13 +71,10 @@
       <select id="vehicle" required>
         <option value="">--Choose a Vehicle--</option>
       </select>
-
       <label for="customerName">Your Name:</label>
       <input type="text" id="customerName" required />
-
       <label for="customerEmail">Your Email:</label>
       <input type="email" id="customerEmail" required />
-
       <button type="submit">Purchase</button>
     </form>
     <div id="confirmation"></div>
