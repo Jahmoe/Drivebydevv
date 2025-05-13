@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Predictor</title>
+  <link rel="stylesheet" href="static\loan_prediction.css">
+  <script src="static\loan_prediction.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="nav-brand">Loan Predictor</span>
+    </div>
+  </nav>
+
+  <section id="loan-prediction" class="info-section">
+    <h2>Loan Prediction</h2>
+    <form id="loanForm">
+      <label>Applicant Age:</label>
+      <input type="number" id="person_age" placeholder="Enter your age" required>
+
+      <label>Gender:</label>
+      <select id="person_gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label>Education Level:</label>
+      <select id="person_education">
+        <option value="bachelor">Bachelor</option>
+        <option value="associate">Associate</option>
+        <option value="high school">High School</option>
+        <option value="graduate">Graduate</option>
+      </select>
+
+      <label>Annual Income:</label>
+      <input type="number" id="person_income" placeholder="Enter annual income" required>
+
+      <label>Employment Experience (Years):</label>
+      <input type="number" id="person_emp_exp" placeholder="Enter years of experience" required>
+
+      <label>Home Ownership:</label>
+      <select id="person_home_ownership">
+        <option value="MORTGAGE">Mortgage</option>
+        <option value="RENT">Rent</option>
+        <option value="OWN">Own</option>
+        <option value="OTHER">Other</option>
+      </select>
+
+      <label>Loan Amount:</label>
+      <input type="number" id="loan_amnt" placeholder="Loan amount in thousands" required>
+
+      <label>Loan Purpose:</label>
+      <select id="loan_intent">
+        <option value="education">Education</option>
+        <option value="personal">Personal</option>
+        <option value="venture">Venture</option>
+        <option value="medical">Medical</option>
+        <option value="debtconsolidation">Debt Consolidation</option>
+        <option value="homeimprovement">Home Improvement</option>
+      </select>
+
+      <label>Interest Rate (%):</label>
+      <input type="number" id="loan_int_rate" placeholder="Interest rate" step="0.01" required>
+
+      <label>Loan Percent of Income:</label>
+      <input type="number" id="loan_percent_income" placeholder="Loan percent of income" step="0.01" required>
+
+      <label>Credit History Length (Years):</label>
+      <input type="number" id="cb_person_cred_hist_length" placeholder="Credit history length" required>
+
+      <label>Credit Score:</label>
+      <input type="number" id="credit_score" placeholder="Enter credit score" required>
+
+      <label>Previous Loan Defaults:</label>
+      <select id="previous_loan_defaults_on_file">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <button type="submit">Predict</button>
+    </form>
+    <div id="predictionResult"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Loan Predictor. All rights reserved.</p>
+  </footer>
+</body>
+</html>
