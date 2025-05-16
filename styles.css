@@ -1,11 +1,9 @@
-/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
@@ -13,12 +11,10 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Heading Styling */
 h1, h2, .nav-brand {
   font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -41,7 +37,6 @@ h1, h2, .nav-brand {
   font-size: 70px;
 }
 
-/* Hero Section */
 .hero-section {
   position: relative;
   display: flex;
@@ -114,7 +109,6 @@ h1, h2, .nav-brand {
   transform: scale(1.03);
 }
 
-/* Info Section */
 .info-section,
 #vehicle-list,
 #purchase-form {
@@ -179,7 +173,6 @@ h1, h2, .nav-brand {
   font-weight: 600;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -188,7 +181,6 @@ footer {
   margin-top: 2rem;
 }
 
-/* Navigation Styling */
 .navigation__checkbox {
   display: none;
 }
@@ -198,8 +190,8 @@ footer {
   height: 7rem;
   width: 7rem;
   position: fixed;
-  top: 2rem; /* Adjusted from 6rem to 2rem to move it closer to the top */
-  right: 2rem; /* Adjusted from 6rem to 2rem to move it closer to the right */
+  top: 2rem;
+  right: 2rem; 
   border-radius: 50%;
   z-index: 2000;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
@@ -212,8 +204,8 @@ footer {
   width: 6rem;
   border-radius: 50%;
   position: fixed;
-  top: 2.5rem; /* Adjusted to match the new position of .navigation__button */
-  right: 2.5rem; /* Adjusted to match the new position of .navigation__button */
+  top: 2.5rem; 
+  right: 2.5rem; 
   background-image: radial-gradient(#eee, #333);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -268,7 +260,6 @@ footer {
   transform: translateX(1rem);
 }
 
-/* Navigation Icon Styling */
 .navigation__icon {
   position: relative;
   margin-top: 3.5rem;
@@ -319,7 +310,7 @@ footer {
   transform: rotate(-135deg);
 }
 
-/* Animations */
+
 @keyframes waveExpand {
   0% {
     clip-path: polygon(100% 0, 100% 0, 100% 0);
@@ -351,7 +342,6 @@ footer {
   }
 }
 
-/* Media Queries */
 @media (max-width: 992px) {
   .nav-brand {
     font-size: 50px;

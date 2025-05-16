@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Loan Predictor</title>
-  <link rel="stylesheet" href="static\loan_prediction.css">
-  <script src="static\loan_prediction.js" defer></script>
+  <link rel="stylesheet" href="static/loan_prediction.css">
+  <script src="static/loan_prediction.js" defer></script>
 </head>
 <body>
+  <div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+      <ul class="navigation__list">
+        <li class="navigation__item"><a href="index.html" class="navigation__link"><span>01</span> Home</a></li>
+        <li class="navigation__item"><a href="model_recognition/templates/lmodel_recognition.html" class="navigation__link"><span>02</span> Vehicle Recognition</a></li>
+        <li class="navigation__item"><a href="loan_prediction.html" class="navigation__link"><span>03</span> Loan Prediction</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span> Contact</a></li>
+      </ul>
+    </nav>
+  </div>
   <nav class="navbar">
     <div class="nav-left">
       <span class="nav-brand">Loan Predictor</span>
@@ -27,37 +43,35 @@
 
       <label>Education Level:</label>
       <select id="person_education">
-        <option value="bachelor">Bachelor</option>
-        <option value="associate">Associate</option>
-        <option value="high school">High School</option>
-        <option value="graduate">Graduate</option>
+        <option value="Bachelor">Bachelor</option>
+        <option value="Associate">Associate</option>
+        <option value="High School">High School</option>
+        <option value="Master">Master</option>
       </select>
 
       <label>Annual Income:</label>
       <input type="number" id="person_income" placeholder="Enter annual income" required>
 
       <label>Employment Experience (Years):</label>
-      <input type="number" id="person_emp_exp" placeholder="Enter years of experience" required>
+      <input type="number" id="person_emp_exp" placeholder="Years of experience" required>
 
       <label>Home Ownership:</label>
       <select id="person_home_ownership">
         <option value="MORTGAGE">Mortgage</option>
         <option value="RENT">Rent</option>
         <option value="OWN">Own</option>
-        <option value="OTHER">Other</option>
       </select>
 
       <label>Loan Amount:</label>
-      <input type="number" id="loan_amnt" placeholder="Loan amount in thousands" required>
+      <input type="number" id="loan_amnt" placeholder="Loan amount" required>
 
       <label>Loan Purpose:</label>
       <select id="loan_intent">
-        <option value="education">Education</option>
-        <option value="personal">Personal</option>
-        <option value="venture">Venture</option>
-        <option value="medical">Medical</option>
-        <option value="debtconsolidation">Debt Consolidation</option>
-        <option value="homeimprovement">Home Improvement</option>
+        <option value="EDUCATION">Education</option>
+        <option value="PERSONAL">Personal</option>
+        <option value="VENTURE">Venture</option>
+        <option value="MEDICAL">Medical</option>
+        <option value="HOMEIMPROVEMENT">Home Improvement</option>
       </select>
 
       <label>Interest Rate (%):</label>
@@ -70,12 +84,12 @@
       <input type="number" id="cb_person_cred_hist_length" placeholder="Credit history length" required>
 
       <label>Credit Score:</label>
-      <input type="number" id="credit_score" placeholder="Enter credit score" required>
+      <input type="number" id="credit_score" placeholder="Credit score" required>
 
       <label>Previous Loan Defaults:</label>
       <select id="previous_loan_defaults_on_file">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
       </select>
 
       <button type="submit">Predict</button>

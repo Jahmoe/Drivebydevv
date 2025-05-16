@@ -1,0 +1,18 @@
+{
+  "name": "node_loan_ml",
+  "version": "1.0.0",
+  "description": "The Loan Prediction Web Application is a web-based tool that predicts loan approval based on user input. It utilizes a machine learning model to provide an estimated outcome for loan applications. This project aims to assist individuals and financial institutions in making informed decisions regarding loan approvals.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "python-shell": "^5.0.0"
+  }
+}

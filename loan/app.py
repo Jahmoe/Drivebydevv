@@ -8,12 +8,20 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Load the pre-trained model
-model = joblib.load('improved_neural_network_model.joblib')
+model = joblib.load('logistic_regression_model.pkl')
 
-# Load the training data to get feature names
-train_data = pd.read_csv('train.csv')
-encoded_data = pd.get_dummies(train_data.drop(['loan_status', 'loan_id'], axis=1))
-expected_columns = encoded_data.columns.tolist()
+# Feature list (22 columns)
+expected_columns = [
+    'person_age', 'person_income', 'person_emp_exp', 'loan_amnt', 
+    'loan_int_rate', 'loan_percent_income', 'cb_person_cred_hist_length', 'credit_score', 
+    'person_gender_male', 'person_education_Bachelor', 'person_education_Master', 
+    'person_education_High School', 'person_education_Associate', 
+    'person_home_ownership_MORTGAGE', 'person_home_ownership_RENT', 
+    'person_home_ownership_OWN', 'loan_intent_EDUCATION', 
+    'loan_intent_HOMEIMPROVEMENT', 'loan_intent_MEDICAL', 
+    'loan_intent_PERSONAL', 'loan_intent_VENTURE', 
+    'previous_loan_defaults_on_file_Yes'
+]
 
 @app.route('/')
 def home():
@@ -34,22 +42,24 @@ def predict():
             'loan_percent_income': float(data.get('loan_percent_income', 0)),
             'cb_person_cred_hist_length': float(data.get('cb_person_cred_hist_length', 0)),
             'credit_score': int(data.get('credit_score', 0)),
-            f'person_gender_{data.get("person_gender", "male")}': 1,
-            f'person_home_ownership_{data.get("person_home_ownership", "MORTGAGE")}': 1,
-            f'loan_intent_{data.get("loan_intent", "education")}': 1,
-            f'previous_loan_defaults_on_file_{data.get("previous_loan_defaults_on_file", "no")}': 1
+            'person_gender_male': 1 if data.get('person_gender') == 'male' else 0,
+            'person_education_Bachelor': 1 if data.get('person_education') == 'Bachelor' else 0,
+            'person_education_Master': 1 if data.get('person_education') == 'Master' else 0,
+            'person_education_High School': 1 if data.get('person_education') == 'High School' else 0,
+            'person_education_Associate': 1 if data.get('person_education') == 'Associate' else 0,
+            'person_home_ownership_MORTGAGE': 1 if data.get('person_home_ownership') == 'MORTGAGE' else 0,
+            'person_home_ownership_RENT': 1 if data.get('person_home_ownership') == 'RENT' else 0,
+            'person_home_ownership_OWN': 1 if data.get('person_home_ownership') == 'OWN' else 0,
+            'loan_intent_EDUCATION': 1 if data.get('loan_intent') == 'EDUCATION' else 0,
+            'loan_intent_HOMEIMPROVEMENT': 1 if data.get('loan_intent') == 'HOMEIMPROVEMENT' else 0,
+            'loan_intent_MEDICAL': 1 if data.get('loan_intent') == 'MEDICAL' else 0,
+            'loan_intent_PERSONAL': 1 if data.get('loan_intent') == 'PERSONAL' else 0,
+            'loan_intent_VENTURE': 1 if data.get('loan_intent') == 'VENTURE' else 0,
+            'previous_loan_defaults_on_file_Yes': 1 if data.get('previous_loan_defaults_on_file') == 'Yes' else 0
         }
 
-        # Convert input data to a DataFrame
-        input_df = pd.DataFrame([input_data])
-
-        # Align the input data with the expected columns
-        for col in expected_columns:
-            if col not in input_df:
-                input_df[col] = 0
-
-        # Reorder the columns to match the model input
-        input_df = input_df[expected_columns]
+        # Convert input data to a DataFrame and ensure correct order
+        input_df = pd.DataFrame([input_data], columns=expected_columns)
 
         # Convert to numpy array
         features = input_df.values
@@ -57,7 +67,10 @@ def predict():
         # Make prediction
         prediction = model.predict(features)[0]
 
-        return jsonify({'prediction': str(prediction)})
+        # Map prediction to Yes/No
+        prediction_text = "Yes" if prediction == 1 else "No"
+
+        return jsonify({'prediction': prediction_text})
 
     except Exception as e:
         return jsonify({'prediction': 'Error: ' + str(e)})
