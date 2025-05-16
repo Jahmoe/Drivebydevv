@@ -32,9 +32,9 @@
 
     <nav class="navigation__nav">
       <ul class="navigation__list">
-        <li class="navigation__item"><a href="index.html" class="navigation__link"><span>01</span> Home</a></li>
-        <li class="navigation__item"><a href="model_recognition/templates/model_recognition.html" class="navigation__link"><span>02</span> Vehicle Recognition</a></li>
-        <li class="navigation__item"><a href="loan/templates/loan_prediction.html" class="navigation__link"><span>03</span> Loan Prediction</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span> Home</a></li>
+        <li class="navigation__item"><a href="model_recognition.html" class="navigation__link"><span>02</span> Vehicles</a></li>
+        <li class="navigation__item"><a href="#purchase-form" class="navigation__link"><span>03</span> Purchase</a></li>
         <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span> Contact</a></li>
       </ul>
     </nav>
@@ -87,3 +87,30 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  project-id="dev-ai-chatbot"
+  agent-id="d6b9405f-cec8-46bb-9e10-5260060b5cb9"
+  language-code="en"
+  max-query-length="-1">
+  <df-messenger-chat-bubble
+    chat-title="Dev AI">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: Arial;
+    --df-messenger-chat-background: #FFFFFF;
+    --df-messenger-message-user-background: #C6DAFC;
+    --df-messenger-message-bot-background: #FFFFFF;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
