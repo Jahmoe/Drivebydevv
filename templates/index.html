@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drive by Devs - Vehicle Purchase</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="{{ url_for('static', filename='automotive.svg') }}" alt="Drive by Devs Logo">
+      <span class="nav-brand">DriveBy Devs</span>
+    </div>
+
+  </nav>
+
+  <!-- Navigation Component -->
+  <div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+      <ul class="navigation__list">
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span> Home</a></li>
+        <li class="navigation__item"><a href="model_recognition.html" class="navigation__link"><span>02</span> Vehicles</a></li>
+        <li class="navigation__item"><a href="#purchase-form" class="navigation__link"><span>03</span> Purchase</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span> Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1>Find, book, or buy a car—quickly and easily!</h1>
+      <p>Streamline your car purchase experience with our effortless booking process.</p>
+      <a href="#purchase-form" class="cta-btn">Explore Cars</a>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='car.png') }}" alt="Car Image">
+    </div>
+  </section>
+
+  <section class="info-section">
+    <p>
+      We’re a dynamic group of four passionate developers dedicated to revolutionizing e-commerce 
+      experiences. Our mission is to enhance website performance and functionality by leveraging 
+      AI-driven optimizations and robust structural frameworks.
+    </p>
+  </section>
+
+  <section id="vehicle-list">
+    <h2>Available Vehicles</h2>
+    <div id="vehicles"></div> 
+  </section>
+  
+
+  <section id="purchase-form">
+    <h2>Purchase Vehicle</h2>
+    <form id="purchaseForm">
+      <label for="vehicle">Select Vehicle:</label>
+      <select id="vehicle" required>
+        <option value="">--Choose a Vehicle--</option>
+      </select>
+      <label for="customerName">Your Name:</label>
+      <input type="text" id="customerName" required />
+      <label for="customerEmail">Your Email:</label>
+      <input type="email" id="customerEmail" required />
+      <button type="submit">Purchase</button>
+    </form>
+    <div id="confirmation"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Drive by Devs. All rights reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  project-id="dev-ai-chatbot"
+  agent-id="d6b9405f-cec8-46bb-9e10-5260060b5cb9"
+  language-code="en"
+  max-query-length="-1">
+  <df-messenger-chat-bubble
+    chat-title="Dev AI">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: Arial;
+    --df-messenger-chat-background: #FFFFFF;
+    --df-messenger-message-user-background: #C6DAFC;
+    --df-messenger-message-bot-background: #FFFFFF;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+<img src="{{ url_for('static', filename='automotive.svg') }}" alt="Logo">
+<img src="{{ url_for('static', filename='car.png') }}" alt="Car Image">
+
+<a href="{{ url_for('model_recognition') }}" class="navigation__link"><span>02</span> Vehicles</a>
